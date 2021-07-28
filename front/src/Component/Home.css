@@ -1,0 +1,149 @@
+.mid_container {
+    width: 900px;
+    height: 500px;
+    left: 50%;
+    position: relative;
+    transform: translateX(-50%);
+  }
+  
+  .title_h1 {
+    color: var(--text_color);
+    font-size: 2rem;
+  }
+  
+  .lanes_options {
+    width: fit-content;
+    height: 40px;
+    overflow: hidden;
+    padding: 0 0 !important;
+    
+  }
+  
+  .options_bar {
+    width: 650px;
+    display: flex;
+    justify-content: space-between;
+  
+  }
+  
+  .lane_option {
+    width: 40px;
+    height: 40px;
+    overflow: hidden;
+    background-size: cover;
+    background-position: center;
+    cursor: pointer;
+    padding: 0 10px;
+    
+  }
+  
+  .lane_option:hover{
+    background-color: rgba(153, 102, 255,.6);
+  
+  }
+  
+  .lane_option_selected {
+    opacity: 1 !important;
+    background-color: rgb(153, 102, 255) !important;
+  }
+  
+  .rank_option {
+    position: relative;
+    width: fit-content;
+    max-height: 100%;
+  }
+  
+  .rank_option_image_container {
+    width: 18px;
+    height: 20px;
+  }
+  
+  .rank_option_image {
+    width: 18px;
+    height: 20px;
+  }
+  
+  .rank_option_span {
+    margin-left: 3px;
+  }
+  
+  .patch_option {
+  }
+  
+  .patch_span {
+  }
+  
+  .option_container {
+    background-color: var(--overlay_color);
+    border-radius: 5px;
+    user-select: none;
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    
+    height: 40px;
+  }
+  
+  .option_span {
+    width: 100%;
+    font-size: 13px;
+    font-weight: 900;
+    font-family: "Roboto", sans-serif;  
+    color: var(--text_color);
+  
+  }
+  
+  .rank_type_span {
+  }
+  
+  
+  .tier_table{
+    color: var(--text_color);
+    font-size: 14px;
+    width: 100%;
+    font-weight: 400;
+  }
+  
+  .tier_table_container{
+    background-color: var(--overlay_color);
+    border-radius: 5px;
+    margin-top: 2rem;
+    width: 100%;
+  
+  }
+  
+  .tier_table th{
+   padding: 0 15px;
+   cursor: pointer;
+  }
+  .tier_table td{
+    vertical-align: middle;
+    text-align: center;
+  
+  }
+  
+  .tier_table_row{
+    height: 40px;
+  }
+  
+  .champ_image{
+    width: 48px;
+    height: 48px;
+    /* background-image: url('./static/champion0.png'); */
+    /* background-position: -48px -48px; */
+    zoom: 0.55;
+    background-repeat: no-repeat;
+    display: inline-block;
+  }
+  
+  .champ_name{
+    display: inline-block;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    margin-left: 7px;
+  }
+  .champ_td{
+    position: relative;
+    padding-right: 30px;
+  }
