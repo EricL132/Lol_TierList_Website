@@ -1,6 +1,16 @@
 :root {
   --background_color: #0e0e10;
-  --text_color: rgb(242, 230, 255);
+  /* --text_color: rgb(242, 230, 255);
   --overlay_color: rgb(164, 136, 221);
+  --secondary_row:rgba(132, 53, 211,.3);
+  --laneoption_hover:rgba(153, 102, 255, 0.6);
+  --laneoption_selected:rgb(153, 102, 255); */
+  --text_color: rgb(242, 230, 255);
+  /* --overlay_color: rgb(28, 30, 34);
+  --secondary_row:rgba(164, 136, 221, 0.644); */
+  --overlay_color: rgb(28, 30, 34);
+  --secondary_row:rgba(0, 0, 0, 0.233);
+  --laneoption_hover:rgba(153, 102, 255, 0.6);
+  --laneoption_selected:rgb(153, 102, 255);
 }
 

@@ -245,10 +245,10 @@ export default function Home() {
           </thead>
           <tbody>
             {tier_list &&
-              tier_list.map((champ, i) => {
+              tier_list.map((champ,i) => {
                 return (
-                  <tr key={champ.name} className="tier_table_row">
-                    {!params ? <td>{champ.rank}</td> : <td>{i + 1}</td>}
+                  <tr key={champ.name} className={`tier_table_row ${i%2===0 && "dark_row"}`}>
+                   <td>{champ.rank}</td>
 
                     <td>
                       <img
