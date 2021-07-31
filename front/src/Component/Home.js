@@ -75,7 +75,7 @@ export default function Home() {
   function handleLaneChange(e) {
     if (e.target.getAttribute("lane") === "") {
       set_tier_list(original_list);
-
+        
       history.push("/");
       return changeSelectedLaneImage();
     }
