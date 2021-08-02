@@ -140,8 +140,9 @@ export default function Home() {
   }
 
   function SortByTier() {
+    console.log(tiers)
     const sorted = [...tier_list].sort(
-      (a, b) => tiers.indexOf(a.tier) - tiers.indexOf(b.tier)
+      (a, b) => tiers[0].indexOf(a.tier) - tiers[0].indexOf(b.tier)
     );
     doSort(sorted);
   }
