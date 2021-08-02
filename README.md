@@ -1,5 +1,5 @@
 # League of Legends Tier List  
-List is updated every hour
+List is updated every hour  
 Website https://league.erics.software/  
 Built with:
 * React
