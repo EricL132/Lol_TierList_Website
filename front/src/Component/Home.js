@@ -53,29 +53,30 @@ export default function Home() {
     4: champ4,
     5: champ5,
   });
-  function getList() {
-    fetch("/api/getlist")
-      .then((res) => res.json())
-      .then((data) => {
-        changeSelectedLaneImage();
-        data.sort((a, b) => a.rank - b.rank);
-        set_original_list(data);
-        if (params.lane) {
-          data = data.filter((champ) => champ.lane === `${params.lane}lane`);
-        }
-        
 
-        set_tier_list(data);
-      });
-  }
   useEffect(() => {
+    function getList() {
+      fetch("/api/getlist")
+        .then((res) => res.json())
+        .then((data) => {
+          changeSelectedLaneImage();
+          data.sort((a, b) => a.rank - b.rank);
+          set_original_list(data);
+          if (params.lane) {
+            data = data.filter((champ) => champ.lane === `${params.lane}lane`);
+          }
+
+
+          set_tier_list(data);
+        });
+    }
     getList();
-  }, []);
+  }, [params]);
 
   function handleLaneChange(e) {
     if (e.target.getAttribute("lane") === "") {
       set_tier_list(original_list);
-        
+
       history.push("/");
       return changeSelectedLaneImage();
     }
@@ -84,9 +85,9 @@ export default function Home() {
       search: `?lane=${e.target.getAttribute("lane")}`,
     });
     set_tier_list(
-        [...original_list].filter(
+      [...original_list].filter(
         (champ) => champ.lane === `${e.target.getAttribute("lane")}lane`
-      ).sort((a,b)=>tiers.indexOf(a.tier)-tiers.indexOf(b.tier))
+      ).sort((a, b) => tiers.indexOf(a.tier) - tiers.indexOf(b.tier))
     );
     changeSelectedLaneImage();
   }
@@ -103,7 +104,7 @@ export default function Home() {
         .getElementsByClassName("lane_option")[0]
         .classList.add("lane_option_selected");
     } else {
-      Array.from(document.getElementsByClassName("lane_option")).map((ele) => {
+      Array.from(document.getElementsByClassName("lane_option")).forEach((ele) => {
         if (ele.getAttribute("lane") === param.lane) {
           ele.classList.add("lane_option_selected");
         }
@@ -140,7 +141,6 @@ export default function Home() {
   }
 
   function SortByTier() {
-    console.log(tiers)
     const sorted = [...tier_list].sort(
       (a, b) => tiers[0].indexOf(a.tier) - tiers[0].indexOf(b.tier)
     );
@@ -227,7 +227,7 @@ export default function Home() {
           <span className=" rank_type_span option_span">Ranked Solo</span>
         </div>
         <div className="patch_option option_container">
-          <span className="patch_span option_span">11.15</span>
+          <span className="patch_span option_span">{tier_list && tier_list[0].patch}</span>
         </div>
       </div>
       <div className="tier_table_container">
@@ -246,10 +246,10 @@ export default function Home() {
           </thead>
           <tbody>
             {tier_list &&
-              tier_list.map((champ,i) => {
-                return (
-                  <tr key={champ.name} className={`tier_table_row ${i%2===0 && "dark_row"}`}>
-                   <td>{champ.rank}</td>
+              tier_list.map((champ, i) => {
+                if (champ.image) return (
+                  <tr key={champ.name} className={`tier_table_row ${i % 2 === 0 && "dark_row"}`}>
+                    <td>{champ.rank}</td>
 
                     <td>
                       <img
@@ -261,12 +261,10 @@ export default function Home() {
                       <div
                         className="champ_image"
                         style={{
-                          backgroundImage: `url(${
-                            champImage[0][champ.image.image]
-                          })`,
-                          backgroundPosition: ` -${
-                            (parseInt(champ.image.column) - 1) * 48
-                          }px -${(parseInt(champ.image.row) - 1) * 48}px `,
+                          backgroundImage: `url(${champImage[0][champ.image.image]
+                            })`,
+                          backgroundPosition: ` -${(parseInt(champ.image.column) - 1) * 48
+                            }px -${(parseInt(champ.image.row) - 1) * 48}px `,
                         }}
                       ></div>
                       <div className="champ_name">{champ.name}</div>
@@ -277,11 +275,13 @@ export default function Home() {
                     <td>{champ.ban_rate}%</td>
                     <td>{champ.games_played}</td>
                   </tr>
+
                 );
+                return <></>
               })}
           </tbody>
         </table>
       </div>
-    </div>
+    </div >
   );
 }
